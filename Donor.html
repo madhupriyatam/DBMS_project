@@ -1,0 +1,313 @@
+<html>
+<head><title>helpline</title></head>
+<Script Language = "JavaScript">
+function isPhone(thefield)
+{
+	var theInput=thefield.value;
+	var theLength=theInput.length;
+	var goodPhone=true;
+  if(theLength==11)
+   {
+	for(var i=0;i<theLength;i++)
+          {
+		var theChar=theInput.substring(i,i+1)
+	if(theChar<"0" ||theChar>"9")
+	{
+		goodPhone=false;
+	}
+	if(i==3||i==4||i==5 && theChar=='-')
+		{
+		goodPhone=true;
+		}
+           }
+    }
+else
+{
+goodPhone=false
+}
+ if(goodPhone==false)
+	{
+	alert("this does not appear to be a valid phone no:"+theInput);
+	
+	}
+	
+}
+
+function isAge(thefield)
+{
+	var theInput=thefield.value;
+	var theLength=theInput.length;
+	var goodAge=true;
+  if(theLength>=1)
+   {
+	for(var i=0;i<theLength;i++)
+          {
+		var theChar=theInput.substring(i,i+1)
+		if(theChar<"0" ||theChar>"9")
+		{
+			goodAge=false;
+		}
+	
+           }
+    }
+else
+{
+goodAge=false;
+}
+ if(goodAge==false||theInput==" ")
+	{
+	alert("this must be a number:"+theInput);
+	
+	}
+}
+
+function isWeight(thefield)
+{
+	var theInput=thefield.value;
+	var theLength=theInput.length;
+	var goodWeight=true;
+  if(theLength>=1)
+   {
+	for(var i=0;i<theLength;i++)
+          {
+		var theChar=theInput.substring(i,i+1)
+		if(theChar<"0" ||theChar>"9")
+		{
+			goodWeight=false;
+		}
+	
+           }
+    }
+else
+{
+goodWeight=false;
+}
+ if(goodWeight==false||theInput==" ")
+	{
+	alert("this must be a number:"+theInput);
+	
+	}
+}
+
+function isEmpty(thefield)
+{
+  if(thefield.length==0)
+   {
+	return true;
+    }
+   else
+     {
+       return false;
+     }
+}
+function isRequired(tm){
+var Empty =false;
+if(Empty ==false && isEmpty(tm.name.value)){
+     Empty=true;
+}
+if(Empty ==false && isEmpty(tm.addr.value))
+   {
+     Empty =true;
+   }
+if(Empty ==false && isEmpty(tm.city.value))
+   {
+     Empty =true;
+   }
+if(Empty ==false && isEmpty(tm.email.value))
+   {
+     Empty =true;
+   }
+if(Empty ==false && isEmpty(tm.org.value))
+   {
+     Empty =true;
+   }
+if(Empty ==false && isEmpty(tm.fdoc.value))
+   {
+     Empty =true;
+   }
+
+if(Empty==false)
+ {
+   tm.submit();
+}
+else{
+alert("Please enter all fields");
+}
+}
+</SCRIPT>    
+<body background="C:\project1\NABKGND.JPG">
+<h1><font face='arial' size=6 color='maroon'><marquee behavior=alternate>HELPLINE</marquee>
+<h3><center>Blood Donation Registration Form</center></h3></font>			
+<hr color='maroon'>
+<Form name="form1" action="http://localhost:8080/servlet/registinput" method="post" >
+<table border=0 cellspacing=6>
+			<tr>
+				<th align='left'> Name  :</th>
+				<td>
+			<input type="text" name="name" size=30>
+				</td>
+			</tr>
+			
+			<tr>
+				<th align='left'>(SurName  FirstName Middle Name) :</th>
+			
+			</tr>
+
+			<tr>
+				<th align='left'>Address :</th>
+				<td>
+			<input type='text' name='addr'  size=30  >
+				</td>
+			 </tr>
+			<tr>
+				<th align='left'>City :</th>
+				<td>
+					<input type='text' name='city' size=15>
+				</td>
+			</tr>
+			<tr>
+				<th align='left'>State :</th>
+				<td>
+					<select name="state">
+		<option>Andhrapradesh</option>
+		<option>Maharashtra</option>
+		<option>Arunachalpradesh</option>									
+		<option >Tamilnadu</option>
+		<option >Kerla</option>
+		<option >Karnataka</option>
+		<option >Orissa</option>
+		<option>Madyapradesh</option>
+		<option>WestBengal</option>
+		<option>Utterpradesh</option>									
+		<option>Gujrat</option>
+		<option >JammuKashmir</option>
+		<option >Goa</option>
+		<option >Rajastan</option>
+		<option >meghalaya</option>
+		<option >Asam</option>
+		<option >Sikkim</option>									
+		<option >Bihar</option>
+		<option >Hariyana</option>
+		<option >Tripura</option>
+</select>
+				</td>
+			</tr>
+			<tr>
+				<th align='left'>E-Mail Id :</th>
+				<td>
+					<input type='text' name='email' size=30>
+				</td>
+			</tr>
+			<tr>
+				<th align='left'>Phone(Office) :</th>
+				<td>
+					<input type='text' name='phoneo' size=15 onBlur="isPhone(this.form.phoneo)">
+				</td>
+				
+			</tr>
+			<tr>
+				<th align='left'>Phone(Res) :</th>
+				<td>
+					<input type='text' name='phoner' size=15 onBlur="isPhone(this.form.phoner)">
+				</td>
+			</tr>
+			<tr>
+				<td><h4>eg.020-5658692 or 0256-786868 or 02712-35353</h4> </td>
+			</tr>
+			<tr>
+				<th align='left'>Organisation :</th>
+				<td>
+					<input type='text' name='org' size=20>
+				</td>
+			</tr>
+						
+			<tr>
+				<th align='left'>Age :</th>
+				<td>
+					<input type='text' name='age' size=2 onBlur="isAge(this.form.age)">
+			</tr>
+			<tr>
+				<th align='left'>Sex :</th>
+				<td>
+					<input type='radio' name='pg' checked value='male'>Male
+					<input type='radio' name='pg'  value='female'>Female
+				</td>
+				</tr>
+			<tr>
+				<th align='left'>Weight in Kg :</th>
+				<td>
+					<input type='text' name='weight' size=3 onBlur="isWeight(this.form.weight)">
+				</td>
+			</tr>
+			<tr>
+				<th align='left'>Blood Group :</th>
+				<td>
+					<select name="bg">
+					<option value="O+">O Rh +ve</option>
+					<option value="O-">O Rh -ve</option>
+					<option value="A+">A Rh +ve	</option>
+					<option value="A-">A Rh -ve</option>
+					<option value="B+">B Rh +ve</option>
+					<option value="B-">B Rh -ve</option>
+					<option value="AB+">AB Rh +ve</option>
+					<option value="AB-">AB Rh -ve</option>
+					</select>
+				</td>
+				</tr>
+			<tr>
+			<tr>
+				<th align='left'>Family Doctor :</th>
+				<td>
+					<input type='text' name='fdoc' size=15>
+				</td>
+			</tr>
+			
+
+
+			</table>
+				
+				<br>
+				
+			<hr color='maroon'>
+			
+			
+			<table border=0 align='center'>
+			<tr>
+			<td>
+			<input type="Button" value="Submit" onClick="isRequired(form)" >
+			</td><td></td>
+			<td>
+			<input type='reset' value='Clear'>
+			</td>
+			</tr> 
+			</table>
+			<table border=0 align='center'>	
+			<tr>
+			<td>
+<a href=c:\project1\ch.htm>Search For Blood Group Donar |</a>
+</td>
+<td>
+<a href="mailto:shashi2000@rediff.com">E_mail us</a>
+</td>
+</tr>
+</table>
+			</table>
+			
+			</form>
+			<font face='arial' size=4 color='maroon'>
+			<marquee behavior=alternate><h3>Fill this Form to Register  </h3></marquee>
+			</font>
+			
+			</center>
+
+
+
+
+
+
+
+</body>
+</html>
+            			
+			
+			
